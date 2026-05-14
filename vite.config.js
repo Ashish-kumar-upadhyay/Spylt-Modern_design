@@ -4,7 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/Spylt-awward-clone/" : "/",
+  base:
+    process.env.VERCEL === "1"
+      ? "/"
+      : process.env.NODE_ENV === "production"
+        ? "/Spylt-awward-clone/"
+        : "/",
   build: {
     outDir: "docs"
   },
